@@ -150,4 +150,20 @@ class ArticleController extends Controller
             return response([$exception->getMessage(), (integer)$exception->getCode()], 500);
         }
     }
+    public function byCat($id)
+    {
+        try {
+            $data = Article::all()->where('article_category_id', $id);
+
+            return response([
+                "data"=>ArticleResource::collection($data),
+
+            ], 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+
+        }
+    }
+
+
 }

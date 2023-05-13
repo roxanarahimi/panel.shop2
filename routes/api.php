@@ -97,6 +97,7 @@ Route::controller(App\Http\Controllers\ArticleController::class)->group(function
     Route::get('/article', 'indexSite');
     Route::get('/article/{article}', 'show');
     Route::get('/latest/article', 'latestSite');
+    Route::get('/article/by/category/{id}', 'byCat');
 
     Route::prefix('panel')->group(function () {
 
@@ -266,30 +267,6 @@ Route::controller(App\Http\Controllers\CourseController::class)->group(function 
         Route::post('/delete/course', 'destroy');
         Route::get('/active/course/{course}', 'activeToggle');
         Route::get('/latest/course', 'latest');
-    });
-});
-Route::controller(App\Http\Controllers\CourseCategoryController::class)->group(function () {
-
-    Route::prefix('panel')->group(function () {
-
-        Route::get('/category/course', 'index');
-        Route::get('/category/course/{courseCategory}', 'show');
-        Route::post('/category/course', 'store');
-        Route::post('/category/course/{courseCategory}', 'update');
-        Route::post('/delete/category/course', 'destroy');
-        Route::get('/active/category/course/{courseCategory}', 'activeToggle');
-    });
-});
-Route::controller(App\Http\Controllers\TeacherController::class)->group(function () {
-
-    Route::prefix('panel')->group(function () {
-        Route::get('/teacher', 'index');
-        Route::get('/teacher/{teacher}', 'show');
-        Route::post('/teacher', 'store');
-        Route::post('/teacher/{teacher}', 'update');
-        Route::get('/delete/teacher/{teacher}', 'destroy');
-        Route::get('/active/teacher/{teacher}', 'activeToggle');
-        Route::get('/latest/teacher', 'latest');
     });
 });
 Route::controller(App\Http\Controllers\CityController::class)->group(function () {
