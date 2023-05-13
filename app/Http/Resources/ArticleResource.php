@@ -35,6 +35,12 @@ class ArticleResource extends JsonResource
             "created_at" => date('Y-m-d', strtotime($this->created_at)),
             "updated_at" => date('Y-m-d', strtotime($this->updated_at)),
 
+            "image2" => $this->image2,
+            "text2" => $this->text2,
+            "text3" => $this->text3,
+            "text4" => $this->text4,
+
+
         ];
     }
 }
